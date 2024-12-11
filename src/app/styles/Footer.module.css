@@ -1,0 +1,82 @@
+.line hr {
+  width: 1188px;
+  margin: auto;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Vazir";
+  padding: 50px;
+}
+.list {
+  display: flex;
+  gap: 30px;
+}
+
+.list ul li {
+  list-style: none;
+}
+
+.torinoList {
+  font-family: "Vazir";
+  font-weight: 400;
+  margin-right: 20px;
+}
+
+.torinoList h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+}
+.torinoList ul li {
+  cursor: pointer;
+  text-align: start;
+}
+.torinoList ul li:hover {
+  color: #28a745;
+}
+
+.servicesList {
+  font-family: "Vazir";
+  font-weight: 400;
+}
+
+.servicesList h2 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-right: 40px;
+}
+
+.servicesList ul li {
+  cursor: pointer;
+  text-align: right;
+}
+.servicesList ul li:hover {
+  color: #28a745;
+}
+
+.logoTorino {
+  text-align: left;
+  font-size: 15px;
+  font-family: "Vazir";
+  font-weight: 400;
+  margin-left: 50px;
+}
+
+.sponcer {
+  display: flex;
+  gap: 20px;
+  margin-left: 50px;
+}
+
+.lineEnd hr {
+  margin-top: -20px;
+}
+.text {
+  font-family: "vazir";
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}

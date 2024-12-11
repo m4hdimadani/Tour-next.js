@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  width: 1440px;
+  height: 74px;
+  background-color: #ffff;
+  margin: auto;
+  font-family: "Vazir";
+  padding: 20px;
+}
+
+.logo img {
+  width: 141px;
+  height: 44px;
+  margin-right: 100px;
+  
+}
+
+.list ul {
+  width: 499px;
+  height: 25px;
+  display: flex;
+  list-style: none;
+  margin: 20px 0 0 200px;
+}
+
+.list ul li {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24.8px;
+  width: 158px;
+  height: 25px;
+}
+
+.list ul li:hover {
+  color: #28a745;
+}
+
+.button {
+  margin-top: 10px;
+  margin-left: 100px;
+ 
+}

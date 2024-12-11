@@ -1,0 +1,10 @@
+.container {
+    font-family: "Vazir";
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 43.4px;
+    text-align: center;
+}
+.container p span {
+    color: #28A745;
+}
