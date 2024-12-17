@@ -6,7 +6,7 @@ import styles from "../../app/styles/BannerSevice.module.css";
 function BannerServic() {
   return (
     <div className={styles.container}>
-      <Image src={Banner} />
+      <Image src={Banner} alt="بنر" />
     </div>
   );
 }

@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import styles from "../../app/styles/TourCard.module.css";
+import TourDescription from "../atoms/TourDescription";
 
-async function TourCard() {
+function TourCard() {
   const [tour, setTour] = useState([]);
-
-  useEffect(() => {
-    fetchTours();
-  }, []);
+  const [loading, setLoading] = useState(true);
 
   const fetchTours = async () => {
     try {
@@ -16,46 +15,50 @@ async function TourCard() {
         cache: "no-store",
       });
       const data = await res.json();
-      if (data.status === "success") setTour(data);
+      setTour(data);
+      setLoading(false);
     } catch (err) {
       console.error("Error fetching tour", err);
+      setLoading(false);
     }
   };
 
+  useEffect(() => {
+    fetchTours();
+  }, []);
   return (
-    <div>
-    <h1>لیست تورها</h1>
-    <div className="tour-list">
-      {tour.length > 0 ? (
-        tour.map((item) => (
-          <div key={item.id} className="tour-card">
-            <img src={item.image} alt={item.title} className="tour-image" />
-            <h2>{item.title}</h2>
-            <p>
-              مبدا: {item.origin.name} | مقصد: {item.destination.name}
-            </p>
-            <p>
-              تاریخ شروع:{" "}
-              {new Date(item.startDate).toLocaleDateString("fa-IR")} | تاریخ
-              پایان: {new Date(item.endDate).toLocaleDateString("fa-IR")}
-            </p>
-            <p>وسیله نقلیه: {item.fleetVehicle}</p>
-            <p>قیمت: {item.price.toLocaleString()} تومان</p>
-            <p>صندلی‌های خالی: {item.availableSeats}</p>
-            <p>بیمه: {item.insurance ? "دارد" : "ندارد"}</p>
-            <ul>
-              امکانات:
-              {item.options.map((option, index) => (
-                <li key={index}>{option}</li>
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <h2>همه تور ها</h2>
+        <div className={styles.cards}>
+          {!loading ? (
+            <div className={styles.box}>
+              {tour.map((item) => (
+                <div key={item.id} className={styles.card}>
+                  <img src={item.image} />
+                  <div className={styles.nameTour}>
+                    <h2>{item.title}</h2>
+
+                    <TourDescription tour={item} />
+                  </div>
+                  <div className={styles.bottomBox}>
+                    <div className={styles.button}>
+                      <button>رزرو</button>
+                    </div>
+                    <div className={styles.price}>
+                      {item.price}
+                      <p>تومان</p>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </ul>
-          </div>
-        ))
-      ) : (
-        <p>هیچ توری موجود نیست.</p>
-      )}
+            </div>
+          ) : (
+            <p>Loading ...</p>
+          )}
+        </div>
+      </div>
     </div>
-  </div>
   );
 }
 

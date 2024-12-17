@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right h1 {
+    font-family: "Vazir";
+    font-weight: 600;
+    font-size: 36px;
+    width: 399px;
+    height: 48.8px;
+}
+
+.right button {
+    background-color: rgba(216, 255, 225, 1);
+    border: none;
+    color: rgba(40, 167, 69, 1);
+    width: 361px;
+    height: 75px;
+    border-radius: 16px;
+    padding: 8px;
+    font-size: 28px;
+    font-family: "vazir";
+    font-weight: 600;
+    cursor: pointer;
+}

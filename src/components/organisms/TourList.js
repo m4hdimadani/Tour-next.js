@@ -1,5 +1,3 @@
-"use client";
-
 import TourCard from "../molcules/TourCard";
 
 function TourList() {

@@ -12,6 +12,7 @@ function Banner() {
         sizes="100vw"
         style={{ width: "100%", height: "auto" }}
         quality={100}
+        alt="بنر"
       />
     </div>
   );

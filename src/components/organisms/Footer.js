@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import logo from "../../../public/icon/Torino (4) 1.png"
+import logo from "../../../public/icon/Torino (4) 1.png";
 import arline from "../../../public/icon/state-airline-f45c55b2 1.png";
 import passenger from "../../../public/icon/passenger-rights-48368f81 1.png";
 import barcode from "../../../public/icon/barcode.png";
@@ -38,15 +38,15 @@ function Footer() {
         </div>
         <div className={styles.logos}>
           <div className={styles.logoTorino}>
-            <Image src={logo} />
+            <Image src={logo} alt="لوگوی تورینو" />
             <p> تلفن پشتیبانی: 8574-021 </p>
           </div>
           <div className={styles.sponcer}>
-            <Image src={arline} />
-            <Image src={passenger} />
-            <Image src={barcode} />
-            <Image src={etemad} />
-            <Image src={aira} />
+            <Image src={arline} alt="لوگوی شرکت هواپیمایی" />
+            <Image src={passenger} alt="حقوق مسافرین" />
+            <Image src={barcode} alt="تصویر بارکد" />
+            <Image src={etemad} alt="لوگوی نماد اعتماد الکترونیکی" />
+            <Image src={aira} alt="لوگوی آژانس مسافرتی آریا" />
           </div>
         </div>
       </div>

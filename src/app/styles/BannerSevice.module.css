@@ -4,4 +4,7 @@
     height: 251px;
     margin-right: auto;
     margin-left: auto;
+    margin-top: -200px;
+    position: relative;
+    z-index: 1;
 }

@@ -3,7 +3,10 @@ import Banner from "@/components/atoms/Banner";
 import TourList from "../organisms/TourList";
 import BannerServic from "../atoms/BannerServic";
 import WhyTourino from "../molcules/WhyTourino";
-import TourCard from "../molcules/TourCard";
+import Services from "../atoms/Services";
+
+
+
 
 function HomPage() {
   return (
@@ -17,7 +20,7 @@ function HomPage() {
         </div>
       </div>
       <div>
-        <TourCard />
+        <TourList />
       </div>
       <div>
         <BannerServic />
@@ -25,8 +28,13 @@ function HomPage() {
       <div>
         <WhyTourino />
       </div>
+      
+      <div>
+        <Services />
+      </div>
     </div>
   );
 }
+
 
 export default HomPage;

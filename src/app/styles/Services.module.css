@@ -1,0 +1,36 @@
+.hr {
+  margin-top: -200px;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+
+  width: 1188px;
+  margin: auto;
+}
+
+.darsad {
+  display: flex;
+  width: 331.53px;
+  height: 109.03px;
+}
+
+.titleImage {
+  font-family: "Vazir";
+  margin-right: 20px;
+}
+.titleImage h2 {
+  margin: auto;
+}
+
+.titleImage p {
+  width: 202px;
+  height: 50px;
+  font-family: "Vazir";
+  font-weight: 200;
+  font-size: 16px;
+  color: rgba(40, 40, 40, 1);
+  margin: auto;
+}
