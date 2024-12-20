@@ -3,9 +3,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // eslint-disable-next-line
+const queryClient = new QueryClient(); 
 function TanstackQueryProvider({ children }) {
-  const queryClient = new QueryClient();
-
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );

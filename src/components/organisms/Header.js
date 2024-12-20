@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../public/icon/Torino (4) 1.png";
-import Button from "../atoms/Button";
 import styles from "../../app/styles/Header.module.css";
+import Auth from "./Auth";
 
 function Header() {
   return (
@@ -29,7 +29,7 @@ function Header() {
         </ul>
       </div>
       <div className={styles.button}>
-        <Button />
+        <Auth />
       </div>
     </div>
   );

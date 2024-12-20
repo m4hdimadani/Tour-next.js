@@ -1,4 +1,8 @@
-import { useMutation } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import api from "../config/api";
 
 const useSendOtp = () => {
@@ -8,11 +12,13 @@ const useSendOtp = () => {
 };
 
 const useCheckOtp = () => {
+  const queryClient = useQueryClient();
   const mutationFn = (data) => api.post("auth/check-otp", data);
 
-  return useMutation({ mutationFn });
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+  };
+  return useMutation({ mutationFn, onSuccess });
 };
-
-
 
 export { useCheckOtp, useSendOtp };
