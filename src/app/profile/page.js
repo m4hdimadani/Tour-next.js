@@ -6,7 +6,7 @@ import { TbTransformFilled } from "react-icons/tb";
 function Profile() {
   return (
     <div>
-     
+     <h1>hloo</h1>
     </div>
   );
 }

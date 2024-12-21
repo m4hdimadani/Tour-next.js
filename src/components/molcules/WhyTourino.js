@@ -1,4 +1,5 @@
 import styles from "../../app/styles/WhyTourino.module.css";
+import Slider from "../atoms/Slider";
 
 
 function WhyTourino() {
@@ -22,8 +23,8 @@ function WhyTourino() {
           را خریداری کنید.
         </p>
       </div>
-      <div>
-       
+      <div className={styles.Slider}>
+        <Slider />
       </div>
     </div>
   );

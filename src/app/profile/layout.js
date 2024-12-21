@@ -1,30 +1,49 @@
+"use client";
 import Link from "next/link";
 import { FaUser } from "react-icons/fa6";
 import { RiSunFoggyFill } from "react-icons/ri";
 import { TbTransformFilled } from "react-icons/tb";
+import { useState } from "react";
+
+import styles from "../styles/layoutProfile.module.css";
 
 export default function ProfileLayout({ children }) {
+  const [activeTab, setActiveTab] = useState("profile");
+
   return (
-    <div>
-      <ul>
-        <li>
-          <FaUser />
-          <p>پروفایل</p>
-        </li>
-        <li>
-          <Link href="/profile/my-tours">
-            <RiSunFoggyFill />
-            <p>تور های من</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/profile/transactions">
-            <TbTransformFilled />
-            <p>تراکنش ها</p>
-          </Link>
-        </li>
-      </ul>
-      <main>{children}</main>
+    <div className={styles.container}>
+      <div className={styles.sidebar}>
+        <ul>
+          <li
+            className={activeTab === "profile" ? styles.active : ""}
+            onClick={() => setActiveTab("profile")}
+          >
+            <Link href="/profile">
+              <FaUser />
+              <p>پروفایل</p>
+            </Link>
+          </li>
+          <li
+            className={activeTab === "my-tours" ? styles.active : ""}
+            onClick={() => setActiveTab("my-tours")}
+          >
+            <Link href="/profile/my-tours">
+              <RiSunFoggyFill />
+              <p>تور های من</p>
+            </Link>
+          </li>
+          <li
+            className={activeTab === "transactions" ? styles.active : ""}
+            onClick={() => setActiveTab("transactions")}
+          >
+            <Link href="/profile/transactions">
+              <TbTransformFilled />
+              <p>تراکنش ها</p>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <main className={styles.content}>{children}</main>
     </div>
   );
 }
