@@ -3,13 +3,11 @@ import styles from "../../app/styles/CheckOtp.module.css";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import OtpInput from "react18-input-otp";
 import { useCheckOtp } from "@/core/service/mutations";
-import { setCookie } from "@/core/utils/cookie";
 
 function CheckOtp({ mobile, setStep, setIsOpenModal }) {
   const [code, setCode] = useState("");
 
   const { isPending, mutate } = useCheckOtp();
-
 
   const checkOtpHandler = (event) => {
     event.preventDefault();
@@ -18,12 +16,9 @@ function CheckOtp({ mobile, setStep, setIsOpenModal }) {
     mutate(
       { mobile, code },
       {
-        onSuccess: (data) => {
-          setCookie("accessToken", data?.data?.accessToken, 30);
-          setCookie("refreshToken", data?.data?.refreshToken, 350);
+        onSuccess: () => {
           setIsOpenModal(false);
           setStep(1);
-         
         },
         onError: (error) => {
           console.log(error);

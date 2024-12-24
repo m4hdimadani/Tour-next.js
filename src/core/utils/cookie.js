@@ -1,7 +1,4 @@
-// function  setCookie(name, value, days = 30) {
-//     const maxAge = days * 24 * 60 * 60;
-//     document.cookie = `${name}=${value}; max-age=${maxAge}; path=/`;
-//   }
+
 function setCookie(name,value,days) {
   var expires = "";
   if (days) {

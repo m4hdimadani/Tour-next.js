@@ -24,11 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <TanstackQueryProvider>
-          <Header />
-          {children}
-          <Footer />
-        </TanstackQueryProvider>
+        <TanstackQueryProvider>{children}</TanstackQueryProvider>
         <Toaster />
       </body>
     </html>

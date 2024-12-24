@@ -1,0 +1,269 @@
+@font-face {
+  font-family: Vazir;
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Vazirmatn-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: Vazir;
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Vazirmatn-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Vazir;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Vazirmatn-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: Vazir;
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Vazirmatn-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: Vazir;
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Vazirmatn-ExtraBold.ttf") format("truetype");
+}
+
+.boxOne {
+  width: 872px;
+  height: 115px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.account h2 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24.8px;
+}
+
+.inBoxOne {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.number {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+.number p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.number h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.email {
+  display: flex;
+  align-items: baseline;
+  gap: 100px;
+}
+
+.email p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.email h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+.edit {
+  display: flex;
+  margin-top: 16px;
+  color: rgba(0, 158, 202, 1);
+  font-size: 20px;
+  cursor: pointer;
+  align-items: baseline;
+}
+
+.edit a {
+  font-size: 14px;
+  color: rgba(0, 158, 202, 1);
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.edit .CiEdit {
+  margin-left: 10px;
+  font-size: 20px;
+  margin-bottom: -5px;
+}
+
+.boxTow {
+  width: 872px;
+  height: 171px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 0 18px;
+}
+
+.inBoxTow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+
+.name p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.name h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.male {
+  display: flex;
+  align-items: baseline;
+  gap: 80px;
+}
+
+.male p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.male h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.codeMale {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+
+.codeMale p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.codeMale h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.bd {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+}
+
+.bd p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.bd h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.editTow a {
+  font-size: 14px;
+  color: rgba(0, 158, 202, 1);
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.boxThree {
+  width: 872px;
+  height: 171px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 0 18px;
+}
+
+.inBoxThree {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bankShaba {
+  display: flex;
+  align-items: baseline;
+  gap: 80px;
+}
+
+.bankShaba p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.bankShaba h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.bankCode {
+  display: flex;
+  align-items: baseline;
+  gap: 80px;
+}
+
+.bankCode p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.bankCode h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+
+.numberBank {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  margin-right: 100px;
+}
+
+.numberBank p {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 300;
+}
+
+.numberBank h4 {
+  font-size: 14px;
+  color: rgba(40, 40, 40, 1);
+  font-weight: 400;
+}
+

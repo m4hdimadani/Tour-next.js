@@ -9,4 +9,9 @@ const useGetUserData = () => {
   return useQuery({ queryFn, queryKey });
 };
 
-export { useGetUserData };
+
+
+export { useGetUserData  };
+
+
+

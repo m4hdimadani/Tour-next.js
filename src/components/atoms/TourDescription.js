@@ -6,10 +6,11 @@ function TourDescription({ tour }) {
   const startDate = moment.utc(tour.startDate).startOf("day");
   const endDate = moment.utc(tour.endDate).startOf("day");
   const durationDays = endDate.diff(startDate, "days");
+  const hotel = tour.options
 
   const startMonth = startDate.format("jMMMM");
 
-  const description = `${startMonth} ماه، ${durationDays} روز `;
+  const description = `${startMonth} ماه، ${durationDays}  روز - پرواز -${hotel}`;
 
   return (
     <div className={styles.container}>

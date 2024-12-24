@@ -37,6 +37,9 @@
 .list ul li:hover {
   color: #28a745;
 }
+.list ul li:active {
+  color: #28a745;
+}
 
 .button {
   margin-top: 10px;

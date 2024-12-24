@@ -15,8 +15,8 @@
 
 .box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
   padding: 20px;
 }
 
@@ -28,12 +28,13 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 100%;
+  width: 278.44px; 
+  height: 290px; 
 }
 
 .card img {
   width: 100%;
-  height: 160px;
+  height: 160px; 
   object-fit: cover;
   border-bottom: 1px solid #ddd;
 }
@@ -50,10 +51,15 @@
   font-size: 0.9rem;
   color: #666;
   margin-right: 5px;
+  max-width: 60%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bottomBox {
-    font-family: "Vazir";
+  font-family: "Vazir";
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -62,8 +68,8 @@
   border-top: 1px solid #ddd;
 }
 
-.button button {
-  padding: 5px 16px;
+.button a {
+  padding: 0px 16px;
   background-color: #28a745;
   color: #fff;
   border: none;
@@ -71,16 +77,20 @@
   cursor: pointer;
 }
 
+.button a:hover {
+  background-color: #238c3b;
+}
+
 .price {
-    font-family: "Vazir";
-    display: flex;
+  font-family: "Vazir";
+  display: flex;
   font-size: 1.2rem;
   font-weight: bold;
   color: rgb(79, 172, 218);
 }
 
 .price p {
-    font-size: 12px;
-    color: #666;
-    margin: auto 10px;
+  font-size: 12px;
+  color: #666;
+  margin: auto 10px;
 }
