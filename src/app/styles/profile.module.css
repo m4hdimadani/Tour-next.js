@@ -92,7 +92,7 @@
   align-items: baseline;
 }
 
-.edit a {
+.edit {
   font-size: 14px;
   color: rgba(0, 158, 202, 1);
   font-weight: 300;
@@ -191,11 +191,12 @@
   font-weight: 400;
 }
 
-.editTow a {
+.editTow  {
   font-size: 14px;
   color: rgba(0, 158, 202, 1);
   font-weight: 300;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .boxThree {

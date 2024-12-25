@@ -1,12 +1,19 @@
 "use client";
 import styles from "@/app/styles/profile.module.css";
-import { useGetUserData } from "@/core/service/queries";
-import Link from "next/link";
+import EditProfile from "@/components/molcules/EditProfile";
+import { useGetUserData, useSendEmail } from "@/core/service/queries";
+import { useState } from "react";
 import { CiEdit } from "react-icons/ci";
 
 function Profile() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isEmail, setIsEmail] = useState("---");
+
   const { data } = useGetUserData();
   const mobile = data?.data?.mobile;
+
+  const { email } = useSendEmail();
+  
 
   return (
     <div className={styles.container}>
@@ -23,12 +30,15 @@ function Profile() {
             <p>ایمیل</p>
             <h4> --- </h4>
           </div>
-          <div className={styles.edit}>
-            <Link href="#">
-              {" "}
-              <CiEdit className={styles.CiEdit} />
-              افزودن
-            </Link>
+          <div className={styles.edit} onClick={() => setIsOpenModal(true)}>
+            {" "}
+            {isOpenModal && (
+              <div>
+                <EditProfile />
+              </div>
+            )}
+            <CiEdit className={styles.CiEdit} />
+            افزودن
           </div>
         </div>
       </div>
@@ -58,10 +68,8 @@ function Profile() {
             </div>
           </div>
           <div className={styles.editTow}>
-            <Link href="#">
-              <CiEdit className={styles.CiEdit} />
-              ویرایش اطلاعات
-            </Link>
+            <CiEdit className={styles.CiEdit} />
+            ویرایش اطلاعات
           </div>
         </div>
       </div>
@@ -87,10 +95,8 @@ function Profile() {
             </div>
           </div>
           <div className={styles.editTow}>
-            <Link href="#">
-              <CiEdit className={styles.CiEdit} />
-              ویرایش اطلاعات
-            </Link>
+            <CiEdit className={styles.CiEdit} />
+            ویرایش اطلاعات
           </div>
         </div>
       </div>

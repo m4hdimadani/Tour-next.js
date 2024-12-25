@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import styles from "../../app/styles/TourCard.module.css";
 import TourDescription from "../atoms/TourDescription";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 function TourCard() {
   const [tour, setTour] = useState([]);
@@ -28,10 +27,6 @@ function TourCard() {
   useEffect(() => {
     fetchTours();
   }, []);
-  const router = useRouter();
-  const clickHandler = () => {
-    router.push("/tour/${tourId}");
-  };
 
   return (
     <div className={styles.container}>
@@ -41,15 +36,19 @@ function TourCard() {
           {!loading ? (
             <div className={styles.box}>
               {tour.map((item) => (
-                <div key={item.id} className={styles.card}>
-                  <div className={styles.boxCard} onClick={clickHandler} style={{cursor: "pointer"}}>
-                    <img src={item.image} />
-                    <div className={styles.nameTour}>
-                      <h2>{item.title}</h2>
-
-                      <TourDescription tour={item} />
+                <div className={styles.card} key={item.id}>
+                  <Link href={`/tour/${item.id}`}>
+                    <div
+                      className={styles.boxCard}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img src={item.image} alt={item.title} />
+                      <div className={styles.nameTour}>
+                        <h2>{item.title}</h2>
+                        <TourDescription tour={item} />
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                   <div className={styles.bottomBox}>
                     <div className={styles.button}>
                       <Link href="/profile/my-tours">رزرو</Link>
