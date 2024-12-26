@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import tv from "../../public/icon/Error TV.png";
 import Image from "next/image";

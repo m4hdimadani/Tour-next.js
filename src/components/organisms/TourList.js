@@ -1,9 +1,10 @@
 import TourCard from "../molcules/TourCard";
 
-function TourList() {
+async function TourList({ tourData }) {
+  if (!tourData.length) return <p>نتیجه ای یافت نشد</p>;
   return (
     <div>
-      <TourCard />
+      <TourCard tourData={tourData} />
     </div>
   );
 }

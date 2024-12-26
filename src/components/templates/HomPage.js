@@ -4,11 +4,13 @@ import TourList from "../organisms/TourList";
 import BannerServic from "../atoms/BannerServic";
 import WhyTourino from "../molcules/WhyTourino";
 import Services from "../atoms/Services";
+import FormSearch from "../organisms/FormSearch";
 
 
+async function HomPage({ data }) {
+  
+  
 
-
-function HomPage() {
   return (
     <div>
       <div>
@@ -20,7 +22,10 @@ function HomPage() {
         </div>
       </div>
       <div>
-        <TourList />
+        <FormSearch />
+      </div>
+      <div>
+        <TourList tourData={data} />
       </div>
       <div>
         <BannerServic />
@@ -28,13 +33,12 @@ function HomPage() {
       <div>
         <WhyTourino />
       </div>
-      
+
       <div>
         <Services />
       </div>
     </div>
   );
 }
-
 
 export default HomPage;

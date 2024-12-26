@@ -1,33 +1,21 @@
-"use client";
-import styles from "@/app/tour/tour.module.css"
+
+import styles from "@/app/tour/tour.module.css";
 import TourDetail from "@/components/atoms/TourDetail";
 import Footer from "@/components/organisms/Footer";
 import Header from "@/components/organisms/Header";
-import { useEffect, useState } from "react";
+import { serverFetch } from "@/core/service/http";
 
-function TourDetails({ params: { id } }) {
-  const [tourId, setTourId] = useState(null);
 
-  const fetchTours = async () => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}tour/${id}`, {
-        cache: "no-store",
-      });
-      const data = await res.json();
-      setTourId(data);
-    } catch (err) {
-      console.error("Error fetching tour", err);
-    }
-  };
-
-  useEffect(() => {
-    fetchTours();
-  }, [id]);
-
+async function TourDetails({ params }) {
+  const tourData = await serverFetch(`tour/${params.id}`, null, {
+    cache: "no-store",
+  });
   return (
     <>
-    <Header />
-      <div className={styles.container}>{tourId ? <TourDetail tour={tourId} /> : <p>Loading...</p>}</div>
+      <Header />
+      <div className={styles.container}>
+        { tourData? <TourDetail tour={tourData} /> : <p>Loading...</p>}
+      </div>
       <Footer />
     </>
   );

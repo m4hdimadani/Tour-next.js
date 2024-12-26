@@ -1,6 +1,6 @@
 import styles from "@/app/styles/TourDetail.module.css";
 import moment from "moment-jalaali";
-import Link from "next/link";
+
 
 import { LiaUserTieSolid } from "react-icons/lia";
 import { FaMap } from "react-icons/fa";
@@ -10,8 +10,12 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdBus } from "react-icons/io";
 import { FaUserGroup } from "react-icons/fa6";
 import { MdSecurity } from "react-icons/md";
+import ReserveButton from "./ReserveButton";
 
 function TourDetail({ tour }) {
+
+  if (!tour) return <p>تور پیدا نشد</p>
+
   moment.loadPersian({ dialect: "persian-modern" });
   const startDate = moment
     .utc(tour.startDate)
@@ -61,9 +65,7 @@ function TourDetail({ tour }) {
                   <p>تومان</p>
                 </div>
                 <div className={styles.button}>
-                  <Link href="/profile/my-tours">
-                    <button>رزرو و خرید</button>
-                  </Link>
+                  <ReserveButton id = {tour.id}/>
                 </div>
               </div>
             </div>
