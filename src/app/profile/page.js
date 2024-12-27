@@ -1,19 +1,25 @@
 "use client";
 import styles from "@/app/styles/profile.module.css";
 import EditProfile from "@/components/molcules/EditProfile";
-import { useGetUserData, useSendEmail } from "@/core/service/queries";
-import { useState } from "react";
+import { useGetUserData } from "@/core/service/queries";
+import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 
 function Profile() {
+  const [email, setEmail] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isEmail, setIsEmail] = useState("---");
 
   const { data } = useGetUserData();
   const mobile = data?.data?.mobile;
+  useEffect(() => {
+    if (data?.data?.email) {
+      setEmail(data.data.email);
+    }
+  }, [data]);
 
-  const { email } = useSendEmail();
-  
+  const handleModalClose = () => {
+    setIsOpenModal(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -28,14 +34,25 @@ function Profile() {
           </div>
           <div className={styles.email}>
             <p>ایمیل</p>
-            <h4> --- </h4>
+            <h4> {email || "---"} </h4>
           </div>
           <div className={styles.edit} onClick={() => setIsOpenModal(true)}>
             {" "}
             {isOpenModal && (
-              <div>
-                <EditProfile />
-              </div>
+              <>
+                <div className={styles.modalWrapper} onClick={handleModalClose}>
+                  <div className={styles.modalBackdrop}></div>
+                  <div>
+                    <EditProfile
+                      email={email}
+                      setEmail={setEmail}
+                      mobile={mobile}
+                      onClose={handleModalClose}
+                      className={styles.modalContent}
+                    />
+                  </div>
+                </div>
+              </>
             )}
             <CiEdit className={styles.CiEdit} />
             افزودن
@@ -50,21 +67,21 @@ function Profile() {
           <div className={styles.Right}>
             <div className={styles.name}>
               <p>نام و نام خانوادگی</p>
-              <h4>مهدی معدنی</h4>
+              <h4> --</h4>
             </div>
             <div className={styles.male}>
               <p>جنسیت</p>
-              <h4>مرد</h4>
+              <h4>--</h4>
             </div>
           </div>
           <div className={styles.left}>
             <div className={styles.codeMale}>
               <p>کدملی</p>
-              <h4>4890000000</h4>
+              <h4>--</h4>
             </div>
             <div className={styles.bd}>
               <p>تاریخ تولد</p>
-              <h4>1379/05/28</h4>
+              <h4>--</h4>
             </div>
           </div>
           <div className={styles.editTow}>
@@ -91,7 +108,7 @@ function Profile() {
           <div className={styles.left}>
             <div className={styles.numberBank}>
               <p>شماره کارت</p>
-              <h4>6037997588996611</h4>
+              <h4>---</h4>
             </div>
           </div>
           <div className={styles.editTow}>

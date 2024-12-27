@@ -29,6 +29,40 @@ const useAddToBasket = () => {
 
   return useMutation({ mutationFn });
 };
+const useUpdateUserAccount = () => {
+  const queryClient = useQueryClient();
+
+  const mutationFn = (email) => api.put("user/profile", email);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+  };
+
+  return useMutation({ mutationFn, onSuccess });
+};
+const useUpdatePersonalAccount = () => {
+  const queryClient = useQueryClient();
+
+  const mutationFn = (data) => api.put("user/profile", data);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+  };
+
+  return useMutation({ mutationFn, onSuccess });
+};
+
+const useUpdateBankAccount = () => {
+  const queryClient = useQueryClient();
+
+  const mutationFn = (data) => api.put("user/profile", data);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+  };
+
+  return useMutation({ mutationFn, onSuccess });
+};
 
 const useCheckout = () => {
   const queryClient = useQueryClient();
@@ -42,4 +76,4 @@ const useCheckout = () => {
   return useMutation({ mutationFn, onSuccess });
 };
 
-export { useCheckOtp, useSendOtp, useAddToBasket, useCheckout };
+export { useCheckOtp, useSendOtp, useAddToBasket, useCheckout, useUpdateBankAccount, useUpdateUserAccount, useUpdatePersonalAccount };

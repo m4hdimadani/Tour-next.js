@@ -1,5 +1,60 @@
 .box {
-    width: 872px;
-    height: 115px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 872px;
+  height: 115px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.box h1 {
+    font-size: 16px;
+    display: flex;
+    margin-right: 20px;
+    margin-bottom: -20px;
+    color: rgba(0, 0, 0, 1);
+    font-family: "Vazir";
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.phone {
+  display: flex;
+  align-items: baseline;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.phone p {
+  font-size: 14px;
+  font-family: "Vazir";
+  color: rgba(0, 0, 0, 0.684);
+}
+
+.phone span {
+    font-family:"Vazir";
+    color: rgba(40, 40, 40, 1);
+}
+
+.input {
+    display: flex;
+    gap: 20px;
+}
+
+.input input {
+    width: 255px;
+    height: 30px;
+}
+
+.button button {
+    width: 122px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(40, 167, 69, 1);
+    color: #fff;
+    font-family: "Vazir";
+    cursor: pointer;
 }
