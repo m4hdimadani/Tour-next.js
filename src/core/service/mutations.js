@@ -32,7 +32,7 @@ const useAddToBasket = () => {
 const useUpdateUserAccount = () => {
   const queryClient = useQueryClient();
 
-  const mutationFn = (email) => api.put("user/profile", email);
+  const mutationFn = (data) => api.put("user/profile", data);
 
   const onSuccess = () => {
     queryClient.invalidateQueries({ queryKey: ["user-data"] });

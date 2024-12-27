@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import styles from "@/app/styles/EditProfile.module.css";
 
 import { useUpdateUserAccount } from "@/core/service/mutations";
+import toast from "react-hot-toast";
 
 function EditProfile({ mobile, onClose, email, setEmail }) {
   const { mutateAsync: updateUserAccount, isPending } = useUpdateUserAccount();
@@ -21,7 +22,7 @@ function EditProfile({ mobile, onClose, email, setEmail }) {
     try {
       await updateUserAccount({ ...formData, mobile });
       setEmail(formData.email);
-      alert("اطلاعات با موفقیت به‌روزرسانی شد!");
+      toast.success("اطلاعات با موفقیت به‌روزرسانی شد!");
       onClose();
     } catch (error) {
       console.error("خطا در به‌روزرسانی اطلاعات:", error);
