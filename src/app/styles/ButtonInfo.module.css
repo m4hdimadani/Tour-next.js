@@ -60,7 +60,7 @@
 }
 
 .actions button {
-  margin: 0; /* حذف فاصله اضافی */
+  margin: 0;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;

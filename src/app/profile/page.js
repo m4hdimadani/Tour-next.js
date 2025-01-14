@@ -1,5 +1,6 @@
 "use client";
 import styles from "@/app/styles/profile.module.css";
+import BankInfo from "@/components/atoms/BankInfo";
 import ButtonInfo from "@/components/atoms/ButtonInfo";
 import EditProfile from "@/components/molcules/EditProfile";
 import { useGetUserData } from "@/core/service/queries";
@@ -14,8 +15,11 @@ function Profile() {
     nationalCode: "",
     birthDate: "",
   });
+  const [bank, setBank] = useState([]);
+
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isBankModalOpen, setIsBankModalOpen] = useState(false);
 
   const { data } = useGetUserData();
   const mobile = data?.data?.mobile;
@@ -23,12 +27,15 @@ function Profile() {
     if (data?.data) {
       setEmail(data?.data?.email || "");
       setPersonalInfo({
-        fullName: `${data?.data?.firstName || ""} ${
-          data?.data?.lastName || ""
-        }`.trim(),
+        fullName: `${data.data.firstName} ${data.data.lastName}`.trim(),
         gender: data?.data?.gender || "",
         nationalCode: data?.data?.nationalCode || "",
         birthDate: data?.data?.birthDate || "",
+      });
+      setBank({
+        shaba_code: data?.data?.payment?.shaba_code || "",
+        debitCard_code: data?.data?.payment?.debitCard_code || "",
+        accountIdentifier: data?.data?.payment?.accountIdentifier || "",
       });
     }
   }, [data]);
@@ -36,7 +43,10 @@ function Profile() {
   const handleEditModalClose = () => {
     setIsEditModalOpen(false);
   };
-  
+  const handleBankModalClose = () => {
+    setIsBankModalOpen(false);
+  };
+
   const handleModalClose = () => {
     setIsOpenModal(false);
   };
@@ -123,29 +133,39 @@ function Profile() {
       </div>
       <div className={styles.boxThree}>
         <div className={styles.account}>
-          <h2> اطلاعات شخصی </h2>
+          <h2> اطلاعات حساب بانکی </h2>
         </div>
         <div className={styles.inBoxThree}>
           <div className={styles.Right}>
             <div className={styles.bankShaba}>
               <p>شماره شبا</p>
-              <h4>---</h4>
+              <h4>{bank.shaba_code || "---"}</h4>
             </div>
             <div className={styles.bankCode}>
               <p>شماره حساب</p>
-              <h4>---</h4>
+              <h4>{bank.accountIdentifier || "---"}</h4>
             </div>
           </div>
           <div className={styles.left}>
             <div className={styles.numberBank}>
               <p>شماره کارت</p>
-              <h4>---</h4>
+              <h4>{bank.debitCard_code || "---"}</h4>
             </div>
           </div>
-          <div className={styles.editTow}>
+
+          <div
+            className={styles.editTow}
+            onClick={() => setIsBankModalOpen(true)}
+          >
             <CiEdit className={styles.CiEdit} />
             ویرایش اطلاعات
           </div>
+          {isBankModalOpen && (
+            <div className={styles.modalWrapper}>
+              <div className={styles.modalBackdrop}></div>
+              <BankInfo onClose={handleBankModalClose} setBank={setBank} />
+            </div>
+          )}
         </div>
       </div>
     </div>
