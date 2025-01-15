@@ -10,12 +10,17 @@ import { CiEdit } from "react-icons/ci";
 function Profile() {
   const [email, setEmail] = useState("");
   const [personalInfo, setPersonalInfo] = useState({
-    fullName: "",
+    firstName: "",
+    lastName: "",
     gender: "",
     nationalCode: "",
     birthDate: "",
   });
-  const [bank, setBank] = useState([]);
+  const [bank, setBank] = useState({
+    shaba_code: "",
+    debitCard_code: "",
+    accountIdentifier: "",
+  });
 
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -25,12 +30,22 @@ function Profile() {
   const mobile = data?.data?.mobile;
   useEffect(() => {
     if (data?.data) {
-      setEmail(data?.data?.email || "");
+      const {
+        email,
+        payment,
+        firstName,
+        lastName,
+        gender,
+        nationalCode,
+        birthDate,
+      } = data.data;
+      setEmail(email || "");
       setPersonalInfo({
-        fullName: `${data.data.firstName} ${data.data.lastName}`.trim(),
-        gender: data?.data?.gender || "",
-        nationalCode: data?.data?.nationalCode || "",
-        birthDate: data?.data?.birthDate || "",
+        firstName: firstName || "",
+        lastName: lastName || "",
+        gender: gender || "",
+        nationalCode: nationalCode || "",
+        birthDate: birthDate || "",
       });
       setBank({
         shaba_code: data?.data?.payment?.shaba_code || "",
@@ -94,7 +109,9 @@ function Profile() {
           <div className={styles.Right}>
             <div className={styles.name}>
               <p>نام و نام خانوادگی</p>
-              <h4>{personalInfo.fullName || "--"}</h4>
+              <h4>
+                {personalInfo.firstName || "--"} {personalInfo.lastName || "--"}
+              </h4>
             </div>
             <div className={styles.male}>
               <p>جنسیت</p>
@@ -139,17 +156,17 @@ function Profile() {
           <div className={styles.Right}>
             <div className={styles.bankShaba}>
               <p>شماره شبا</p>
-              <h4>{bank.shaba_code || "---"}</h4>
+              <h4>{bank?.shaba_code || "---"}</h4>
             </div>
             <div className={styles.bankCode}>
               <p>شماره حساب</p>
-              <h4>{bank.accountIdentifier || "---"}</h4>
+              <h4>{bank?.accountIdentifier || "---"}</h4>
             </div>
           </div>
           <div className={styles.left}>
             <div className={styles.numberBank}>
               <p>شماره کارت</p>
-              <h4>{bank.debitCard_code || "---"}</h4>
+              <h4>{bank?.debitCard_code || "---"}</h4>
             </div>
           </div>
 

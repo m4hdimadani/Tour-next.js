@@ -1,5 +1,4 @@
-import Footer from "@/components/organisms/Footer";
-import Header from "@/components/organisms/Header";
+
 import TanstackQueryProvider from "@/components/partials/provider/TanstackQueryProvider";
 import localFont from "next/font/local";
 import { Toaster } from "react-hot-toast";

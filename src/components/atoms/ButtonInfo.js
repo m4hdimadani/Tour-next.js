@@ -5,7 +5,7 @@ import { useUpdatePersonalAccount } from "@/core/service/mutations";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 function ButtonInfo({ personalInfo, setPersonalInfo, onClose }) {
-  const { mutate } = useUpdatePersonalAccount();
+  const { mutate, isPending } = useUpdatePersonalAccount();
 
   const {
     register,
@@ -13,7 +13,8 @@ function ButtonInfo({ personalInfo, setPersonalInfo, onClose }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      fullName: personalInfo.fullName || "",
+      firstName: personalInfo.firstName || "",
+      lastName:personalInfo.lastName || "",
       gender: personalInfo.gender || "",
       nationalCode: personalInfo.nationalCode || "",
       birthDate: personalInfo.birthDate || "",
@@ -67,7 +68,7 @@ function ButtonInfo({ personalInfo, setPersonalInfo, onClose }) {
             <div className={styles.field}>
               <label>کد ملی</label>
               <input
-                type="text"
+                type="number"
                 {...register("nationalCode", {
                   required: "کد ملی الزامی است",
                   pattern: {

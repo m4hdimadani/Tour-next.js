@@ -17,6 +17,7 @@ function BankInfo({ setBank, onClose }) {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(bankAcountSchema),
+    
   });
 
   const submitHandler = (data) => {
