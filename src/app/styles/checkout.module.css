@@ -28,3 +28,8 @@
     font-weight: 600;
     src: url("../fonts/Vazirmatn-ExtraBold.ttf") format("truetype");
 }
+
+.Loader {
+    margin-right: 50%;
+    margin-top: 20%;
+}

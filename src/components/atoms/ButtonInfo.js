@@ -14,7 +14,7 @@ function ButtonInfo({ personalInfo, setPersonalInfo, onClose }) {
   } = useForm({
     defaultValues: {
       firstName: personalInfo.firstName || "",
-      lastName:personalInfo.lastName || "",
+      lastName: personalInfo.lastName || "",
       gender: personalInfo.gender || "",
       nationalCode: personalInfo.nationalCode || "",
       birthDate: personalInfo.birthDate || "",
@@ -22,20 +22,23 @@ function ButtonInfo({ personalInfo, setPersonalInfo, onClose }) {
   });
 
   const onSubmit = (data) => {
-    mutate(
-      { data },
-      {
-        onSuccess: () => {
-          setPersonalInfo(data);
-          toast.success("اطلاعات با موفقیت به‌روزرسانی شد!");
-          onClose();
-        },
-        onError: (error) => {
-          console.error("خطا در به‌روزرسانی اطلاعات:", error);
-          toast.error("خطایی در به‌روزرسانی اطلاعات رخ داد!");
-        },
-      }
-    );
+    const completeData = {
+      ...data,
+      nationalCode: Number(data.nationalCode),
+    };
+    console.log("Final Data Sent:", completeData);
+
+    mutate(completeData, {
+      onSuccess: () => {
+        setPersonalInfo(completeData);
+        toast.success("اطلاعات با موفقیت به‌روزرسانی شد!");
+        onClose();
+      },
+      onError: (error) => {
+        console.error("خطا در به‌روزرسانی اطلاعات:", error);
+        toast.error("خطایی در به‌روزرسانی اطلاعات رخ داد!");
+      },
+    });
   };
   return (
     <div>

@@ -9,13 +9,7 @@ import { CiEdit } from "react-icons/ci";
 
 function Profile() {
   const [email, setEmail] = useState("");
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    gender: "",
-    nationalCode: "",
-    birthDate: "",
-  });
+  const [personalInfo, setPersonalInfo] = useState("");
   const [bank, setBank] = useState({
     shaba_code: "",
     debitCard_code: "",
@@ -29,7 +23,7 @@ function Profile() {
   const { data } = useGetUserData();
   const mobile = data?.data?.mobile;
   useEffect(() => {
-    if (data?.data) {
+    if (data) {
       const {
         email,
         payment,
@@ -38,15 +32,15 @@ function Profile() {
         gender,
         nationalCode,
         birthDate,
-      } = data.data;
+      } = data;
       setEmail(email || "");
-      setPersonalInfo({
-        firstName: firstName || "",
-        lastName: lastName || "",
-        gender: gender || "",
-        nationalCode: nationalCode || "",
-        birthDate: birthDate || "",
-      });
+      setPersonalInfo(
+        firstName || "",
+        lastName || "",
+        gender || "",
+        nationalCode || "",
+        birthDate || ""
+      );
       setBank({
         shaba_code: data?.data?.payment?.shaba_code || "",
         debitCard_code: data?.data?.payment?.debitCard_code || "",
@@ -110,22 +104,22 @@ function Profile() {
             <div className={styles.name}>
               <p>نام و نام خانوادگی</p>
               <h4>
-                {personalInfo.firstName || "--"} {personalInfo.lastName || "--"}
+                {personalInfo?.firstName || "--"} {personalInfo?.lastName || "--"}
               </h4>
             </div>
             <div className={styles.male}>
               <p>جنسیت</p>
-              <h4>{personalInfo.gender || "--"}</h4>
+              <h4>{personalInfo?.gender || "--"}</h4>
             </div>
           </div>
           <div className={styles.left}>
             <div className={styles.codeMale}>
               <p>کدملی</p>
-              <h4>{personalInfo.nationalCode || "--"}</h4>
+              <h4>{personalInfo?.nationalCode || "--"}</h4>
             </div>
             <div className={styles.bd}>
               <p>تاریخ تولد</p>
-              <h4>{personalInfo.birthDate || "--"}</h4>
+              <h4>{personalInfo?.birthDate || "--"}</h4>
             </div>
           </div>
           <div
