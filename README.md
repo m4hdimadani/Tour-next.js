@@ -15,7 +15,7 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-api project and DB https://github.com/m4hdimadani/API-project-torino
+api project and DB https://github.com/m4hdimadani/API-project-torino : Run this file first. After the main project
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
