@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 52vh;
+    background-color: #f0f4f8;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .imageContainer {
+    margin-bottom: 20px;
+  }
+  
+  .image {
+    width: 150px;
+    height: auto;
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .link {
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--green-color);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .link:hover {
+    background-color: green;
+    transform: translateY(-2px);
+  }
+  

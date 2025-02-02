@@ -1,0 +1,66 @@
+.tourInfo {
+  width: 307px;
+  height: 228px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 16px 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Vazir";
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed #7d7d7d;
+}
+
+.top span {
+  color: #7d7d7d;
+  font-size: 16px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom h3 {
+  display: flex;
+  align-items: center;
+}
+
+.toman {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7d7d7d;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 500;
+  color: #009eca;
+  margin-left: 10px;
+}
+
+.button {
+  width: 283px;
+  height: 56px;
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Vazir";
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #10411b;
+}

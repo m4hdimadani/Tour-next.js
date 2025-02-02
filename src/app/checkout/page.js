@@ -8,105 +8,54 @@ import Header from "@/components/organisms/Header";
 import { useGetBasket } from "@/core/service/queries";
 import styles from "@/app/styles/checkout.module.css";
 
-import { FaUserAlt } from "react-icons/fa";
-import Loader from "@/Loader";
+
+import { useCheckout } from "@/core/service/mutations";
+import EmptyCart from "@/components/molcules/Emptycart";
+import PassengerInfo from "@/components/organisms/PassengerInfo";
+import TourInfo from "@/components/organisms/TourInfo";
+import { useRouter } from "next/navigation";
 
 function CheckOut() {
-  const { data, isPending } = useGetBasket();
-
+  const router= useRouter()
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      gender: "",
-      nationalCode: "",
-      birthDate: "",
-    },
-  });
+    setValue,
+  } = useForm();
+  const { mutate } = useCheckout();
+  const { data, isLoading, isError } = useGetBasket();
 
-  if (isPending)
-    return (
-      <div className={styles.Loader}>
-        <Loader />
-      </div>
-    );
+  if (!data) return <EmptyCart />;
+
+  const onSubmit = (data) => {
+    mutate(data, {
+      onSuccess: (response) => {
+        toast.success(response.data.message);
+        router.push("/");
+      },
+    });
+  };
 
   return (
     <>
       <Header />
-      <div className={styles.box}>
-        <div className={styles.modal}>
-          <div className={styles.title}>
-            <FaUserAlt />
-            <h1>مشخصات مسافر</h1>
-          </div>
-          <form className={styles.form}>
-            <div className={styles.inBox}>
-              <div className={styles.field}>
-                <label>نام</label>
-                <input
-                  type="text"
-                  {...register("firstName", { required: "نام الزامی است" })}
-                />
-                <label> نام خانوادگی</label>
-                <input
-                  type="text"
-                  {...register("lastName", {
-                    required: "نام خانوادگی الزامی است",
-                  })}
-                />
-                {errors.name && <p>{errors.name.message}</p>}
-              </div>
-              <div className={styles.field}>
-                <label>جنسیت</label>
-                <select {...register("gender")}>
-                  <option value="مرد">مرد</option>
-                  <option value="زن">زن</option>
-                </select>
-              </div>
-              <div className={styles.field}>
-                <label>کد ملی</label>
-                <input
-                  type="number"
-                  {...register("nationalCode", {
-                    required: "کد ملی الزامی است",
-                    pattern: {
-                      value: /^[0-9]{10}$/,
-                      message: "کد ملی باید 10 رقم باشد",
-                    },
-                  })}
-                />
-                {errors.nationalCode && <p>{errors.nationalCode.message}</p>}
-              </div>
-              <div className={styles.field}>
-                <label>تاریخ تولد</label>
-                <input
-                  type="date"
-                  {...register("birthDate", {
-                    required: "تاریخ تولد الزامی است",
-                  })}
-                />
-                {errors.birthDate && <p>{errors.birthDate.message}</p>}
-              </div>
-            </div>
-          </form>
-        </div>
-        <div className={styles.leftBox}>
-          <h1>{data?.data?.title}</h1>
-          <div className={styles.price}>
-            <p>قیمت نهایی:</p>
-            <span>{data?.data?.price} تومان</span>
-          </div>
-          <div className={styles.button}>
-            <input type="submit" value="ثبت و خرید نهایی" />
-          </div>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <PassengerInfo
+            register={register}
+            control={control}
+            setValue={setValue}
+          />
+          <TourInfo
+            data={data?.data}
+            isError={isError}
+            isLoading={isLoading}
+            onSubmit={handleSubmit(onSubmit)}
+          />
         </div>
       </div>
-
       <Footer />
     </>
   );
