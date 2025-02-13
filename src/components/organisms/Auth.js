@@ -26,6 +26,7 @@ function Auth() {
   const dropdownHandler = () => {
     setIsDropdownOpen((prev) => !prev);
   };
+  
 
   return (
     <div>

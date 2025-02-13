@@ -3,7 +3,7 @@ import TourDescription from "../atoms/TourDescription";
 import Link from "next/link";
 
 async function TourCard({ tourData }) {
-  if (!tourData.length) return <p>نتیجه ای یافت نشد</p>;
+  
   return (
     <div className={styles.container}>
       <div className={styles.title}>

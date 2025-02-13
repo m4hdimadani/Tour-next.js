@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { tourDays } from "../../../src/core/utils/dateConvertor";
 import { formatNumberWithCommas } from "../../core/utils/engToPersianNumber";
 import styles from "../../app/styles/TourInfo.module.css";

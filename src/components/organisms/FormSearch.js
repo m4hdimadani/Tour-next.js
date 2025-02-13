@@ -20,6 +20,8 @@ function FormSearch() {
   const { register, handleSubmit, control, reset } = useForm();
   const { data, isPending, refetch } = useGetTours(query);
 
+
+
   useEffect(() => {
     const originId = getQuery("originId");
     const destinationId = getQuery("destinationId");
